@@ -1,0 +1,53 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/utilities/sprites";
+@import "compass/utilities/general/clearfix";
+@import "base";
+@import "grids";
+//@import "fonts/fonts.css";
+//@import "compass/css3";
+//@import "social/*.png"; //папка с иконками
+
+// добавление спрайтов
+//$social-sprite-dimensions: true; //добавляет высоту и ширину
+// $social: ever,
+// 		micro,
+// 		google,
+// 		fire,
+// 		sony;
+// @each $item in $social{
+// 	li.#{$item}{
+// 		background: url(../img/social-s1f93d0a929.png);
+// 		@include social-sprite(#{$item});
+// 	}
+// }	
+
+//@include span(12); //количество столбцов
+//@include span(4 last); //отменяет правый отступ
+//@include push(1); //смещение
+//@extend .clearfix; //отмена обтекания
+
+@mixin b($name, $r){
+	background: url(../img/#{$name}.#{$r}) 0 0 no-repeat;
+}
+$xs: "max-width: 768px";
+$sm: "max-width: 992px";
+$md: "max-width: 1999px";
+$lg: "min-width: 1200px";
+@mixin col($size, $count){
+	@media screen and(#{$size}){
+		@include span($count);
+	}
+}
+.block{
+	@include col($xs, 12);
+	@include col($sm, 6);
+	@include col($md, 4);
+	@include col($lg, 3);
+	border: 1px solid #ccc;
+	background: #000;
+}
