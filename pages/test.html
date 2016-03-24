@@ -1,0 +1,244 @@
+<section ng-controller='test as test' class='test-section'>
+	<div>
+		{{type}}
+	</div>
+	<div>
+		{{region}}
+	</div>
+	<div>
+		<button ng-click='text()'>run</button>
+	</div>
+	<!-- <bar-fo att='{{type}}' reg='region' fun='text()'>bar fo</bar-fo> -->
+	<form wrap-in='red' action="">
+		<label for="">Пароль</label>
+		<input type="text">
+		<button>Ввод</button>
+	</form>
+	<br><hr><br>
+
+	<!-- <div class="listfilter" ng-repeat='item in test.getList()'>
+		{{item.price | testFilter}}
+	</div> -->
+
+	<!-- <out-code>
+		<form action="" >
+			<h1>Auth</h1>
+			<div class="group">
+				<label for="">Password</label>
+				<input type="text">
+			</div>
+			<div class="group">
+				<label for="">Login</label>
+				<input type="text" plaseholder='Plice login'>
+			</div>
+		</form>
+	</out-code> -->
+	<hr>
+	<h2>SWITCH and SELECT</h2>
+	<select ng-model='test.mode' ng-options='item.price for item in test.getList() track by item.id'></select>
+	<div ng-switch on='test.mode.id'>
+		<div ng-switch-when='1'> Product 1 </div>
+		<div ng-switch-when='2'> Product 2 </div>
+		<div ng-switch-when='3'> Product 3 </div>
+	</div>
+
+	<br><hr><br>
+	<h2>Validatioin</h2>
+	<form name='myForm' novalidate ng-submit='test.formSubmit(user, myForm.$valid)'>
+		<div class="group">
+			<input type="text" name='userName' placeholder='name' required ng-model='user.name'>
+			<div class="error-message" ng-show='test.errorStatus'>
+				{{test.errorMessage(myForm.userName.$error)}}
+			</div>
+		</div>
+		<div class="group">
+			<input type="email" name='userEmail' placeholder='email' ng-model='user.email' required>
+			<div class="error-message" ng-show='test.errorStatus'>
+				{{test.errorMessage(myForm.userEmail.$error)}}
+			</div>
+		</div>
+		<button type='submit'>Ок</button>
+	</form>
+	<h4>List users</h4>
+	<div ng-repeat='user in test.getUsers()'>{{"name: " + user.name + " || email: " + user.email}}</div>
+</section>
+
+<section class='test-section'>
+	<h2>Обмен данными между контроллерами (broadcast, emit, on)</h2>
+
+	<div ng-controller='parentCtrl'>
+		<div class="test-border">
+			Parent ctrl<br>
+			Name: {{name}}<br>
+			<input type="text" ng-model='name'>
+			<div>
+				<button ng-click='rename()'>Переименовать</button>
+			</div>
+		</div>
+		<div class="test-border" ng-controller='childCtrl'>
+			Child ctrl <br>
+			Property: {{name}}<br>
+			<input type="text" ng-model='name'>
+			<div>
+				<button ng-click='rename()'>Переименовать</button>
+			</div>
+		</div>
+	</div>
+	<div ng-controller='parentCtrl2' class="test-border">
+		Paarent ctrl 2 <br>
+		Property: {{name}}
+	</div>
+</section>
+
+<div class="test-section" id='testScript' ng-controller='testScript'>
+	<h2>Обновление данных при использовании сторонних скриптов</h2>
+	<md-button class="md-raised md-primary">Primary</md-button>
+	<div class="test-border">
+		<h4>Angular</h4>
+		<input type="checkbox" ng-model='statusBtn'><br>
+		Counter: {{incriment}}
+	</div>
+	<div  class="test-border">
+		<h4>Jquery Ui</h4>
+		<button id='jqueryUi'>Включить</button>
+	</div>
+
+</div>
+
+<section class="test-section" ng-controller='testFilter'>
+	<h2>Фильтры</h2>
+	<div class="list-name">
+		<table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Email</th>
+				<th>Skill</th>
+			</tr>
+			<!-- <tr ng-repeat='user in getUsers() | filter: {name: "Roman"}'> -->
+			<!-- <tr ng-repeat='user in getUsers() | filter: filterRoman'> -->
+			<!-- <tr ng-repeat='user in getUsers() | orderBy: [limitSkill, "age"]'> -->
+			<!-- <tr ng-repeat='user in getUsers() | filterSlice: 3 '> -->
+			<tr ng-repeat='user in getUsers() | take : 2 : 3'>
+				<td>{{user.name | maRegistr: true}}</td>
+				<td>{{user.age}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.skill}}</td>
+			</tr>
+		</table>
+	</div>
+</section>
+
+<section class="test-section" ng-controller='testFilter'>
+	<h2>Директивы</h2>
+	<div class="group">
+		<div list-user='getUsers' display-attr='name'></div>
+	</div>
+	<div class="group">
+		<div list-user='getUsers' display-attr='skill | currency'></div>
+	</div>
+	<div class="group">
+		<div perspect-skill='getUsers' display-attr='skill'></div>
+	</div>
+</section>
+
+<section class="test-section" ng-controller='serviceCtrl'>
+	<h2>Сервисы</h2>
+	<div class="group" serv-dir total='totalClick'>
+		<button>submit</button>
+		<div>Total: {{totalClick}}</div>
+	</div>
+</section>
+
+<section class="test-section" ng-controller='testSanitize'>
+	<h2>Sanitize</h2>
+	<div class="group" ng-bind-html='text'></div>
+	<div class="group">
+		<div>
+			<input type="text" ng-model='inText'>
+		</div>
+		<div ng-bind='outText'></div>
+	</div>
+</section>
+
+<section class="test-section" ng-controller='testCompile'>
+	<div class="group" user-dir>
+		
+	</div>
+</section>
+
+<section class="test-section" ng-controller='testAjax'>
+	<h2>AJAX</h2>
+	<div class="group">
+		<div><button ng-click='showElems()'>Показать json</button></div>
+		<div ng-repeat='item in items'>{{item.name}} -- {{item.price}}</div>
+	</div>
+	<div class="group">
+		<p>Полученные реки: </p>
+		<div><button ng-click='showReki()'>Показать xml</button></div>
+		<div ng-repeat='item in reks'>{{item.name}} -- {{item.categ}}</div>
+	</div>
+	<div class="group">
+		<p>Отправляем реки</p>
+		<button ng-click='request()'>Отправить</button>
+	</div>
+</section>
+
+<section class="test-section" ng-controller='testRest'>
+	<h2>REST</h2>
+	<div class="group">
+		<table class='table'>
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+			</tr>
+			<tr ng-repeat='item in items'>
+				<td>
+					{{item.name}}
+				</td>
+				<td>{{item.price | currency}}</td>
+				<td>
+					<button ng-click='removeItem(item)'>Удалить</button>
+					<button ng-click='clickEdit(item)'>Изменить</button>
+				</td>
+			</tr>
+		</table>
+		<div>
+			<button ng-click='refrash()'>Refrash</button>
+		</div>
+		<form ng-submit='addItem(newItem)' ng-show='!statusEdit'>
+			<table class='table'>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" ng-model='newItem.name'>
+					</td>
+					<td>
+						<input type="text" ng-model='newItem.price'>
+					</td>
+				</tr>
+			</table>
+			<button type='submit'>Добавить</button>
+		</form>
+		<form ng-submit='editItem()' ng-show='statusEdit'>
+			<table class='table'>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" ng-model='itemCopy.name'>
+					</td>
+					<td>
+						<input type="text" ng-model='itemCopy.price'>
+					</td>
+				</tr>
+			</table>
+			<button type='submit'>Сохранить</button>
+		</form>
+	</div>
+</section>

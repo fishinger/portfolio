@@ -1,0 +1,75 @@
+@import "../../scss/variables.scss";
+.nav{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	transition: all .3s;
+	&.fixed{
+		background: rgba(0,0,0,.8);
+	}
+	&.active{
+		background: #171717;
+	}
+}
+.nav__list{
+	@extend .clearfix;
+	margin-bottom: 0;
+	line-height: 20px;
+	@media screen and($xs){
+		float: none!important;
+		padding-left: 10px;
+	}
+}
+.nav__item{
+	float: left;
+	margin-right: 10px;
+	&:last-child{
+		margin-right: 0;
+	}
+	&.active .nav__link{
+		background: rgba(255,255,255, .4);
+	}
+}
+.nav__link{
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 15px 10px;
+	transition: all .2s;
+	text-decoration: none;
+	display: block;
+	&:focus{
+		text-decoration: none;
+		color: #fff;
+	}
+	&:hover, &.active{
+		text-decoration: none;
+		color: #fff;
+		background: rgba(255,255,255, .4);
+	}
+	@media screen and($xs){
+		padding: 9px 10px;
+	}
+}
+.nav__row{
+	height: 50px;
+	line-height: 50px;
+	@media screen and($xs){
+		height: auto;
+		line-height: 1.2em;
+	}
+}
+.nav__logo{
+	width: 30px;
+	height: 40px;
+	display: inline-block;
+	background: url(../../img/logo.png) 0 0 no-repeat;
+	background-size: contain;
+	position: relative;
+	top: 2px;
+	margin-right: 10px;
+	opacity: .8;
+	transition: all .3s;
+}

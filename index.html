@@ -2,13 +2,39 @@
 <html lang="en" ng-app='app'>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href='/' />
 	<title>Document</title>
+	<link rel="stylesheet" href="fonts/icons/fonts-ico.css">
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic,300&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="js/parsley.min.js"></script>
-	<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easings.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="js/jquery.smoothscroll.js"></script>
 	<script type="text/javascript" src="js/bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="js/bower_components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/bower_components/angular-route/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="js/bower_components/angular-parallax/angular-parallax.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+	<script type="text/javascript" src='js/lodash.min.js'></script>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+	   <script src="js/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	   <script src="js/bower_components/angular-resource/angular-resource.min.js"></script>
+	   <script type="text/javascript" src="js/angular-waypoints.min.js"></script>
+	   <script type="text/javascript" src="js/angular-waypoints.all.min.js"></script>
+	   <script type="text/javascript" src="js/material.min.js"></script>
+
+
+	   <!-- Angular Material Javascript now available via Google CDN; version 0.11.2 used here -->
+	   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="js/html5.js"></script>
 	<![endif]-->
@@ -16,14 +42,38 @@
 	<script src="js/IE9.js"></script>
 	<![endif]-->
 </head>
-<body>
-	
-	<div>
-		<ng-view></ng-view>
+<body ng-controller='mainCtrl' ng-cloak id='waypoint'>
+	<div class='nav' ng-class='{"fixed": !pageIndex}'>
+		<div class="container nav__row">
+			<div class="my-name pull-left" ng-click='scrollTop()'><span class='nav__logo'></span>Павел Крылов</div>
+			<ul class='nav__list pull-right'>
+				<li class='nav__item'> <!-- ui-sref-active='active' -->
+					<a class='nav__link' href="#services">Услуги</a> <!-- ui-sref='main' -->
+				</li>
+				<li class='nav__item'>
+					<a class='nav__link' href="#projects">Проекты</a>
+				</li>
+				<li class='nav__item'>
+					<a class='nav__link' href="#contacts">Контакты</a>
+				</li>
+			</ul>
+		</div>
 	</div>
-
-	<script src="js/jquery.fancybox.pack.js"></script>
+	<div ui-view class='main'
+		 ng-class='{"pages": !pageIndex}'
+	></div>
+	
+	<!-- <div ng-include='footer.html'></div>
+	<div ui-view='content'></div>
+	<div ui-view='footer'></div> -->
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/angular/controllers.js"></script>
+	<script type="text/javascript" src="js/angular/controllers/controllers.js"></script>
+	<script type="text/javascript" src="js/angular/factories/listFactories.js"></script>
+	<script type="text/javascript" src="js/angular/controllers/listsCtrl.js"></script>
+	<script type="text/javascript" src="js/angular/controllers/listCtrl.js"></script>
+	<script type="text/javascript" src="js/angular/factories/cardFactories.js"></script>
+	<script type="text/javascript" src="js/angular/controllers/cardCtrl.js"></script>
+	<script type="text/javascript" src="js/angular/directives/closeEditing.js"></script>
+	<script type="text/javascript" src="js/angular/test.js"></script>
 </body>
 </html>

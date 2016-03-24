@@ -1,0 +1,60 @@
+.list {
+  display: inline-block;
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 10px 20px 20px 20px;
+  margin: 10px;
+  text-align: center;
+  position: relative;
+  vertical-align: top; }
+  .list input {
+    width: 100%; }
+
+.list__remove {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: red;
+  font-size: 11px;
+  cursor: pointer; }
+
+.card {
+  padding: 25px 5px;
+  border: 1px solid #ccc;
+  position: relative; }
+
+.card__name {
+  text-align: left;
+  font-style: italic;
+  margin-bottom: 5px; }
+
+.card__description {
+  text-align: left; }
+
+.card__remove {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: red;
+  font-size: 11px;
+  cursor: pointer; }
+
+.card__edit {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: red;
+  font-size: 11px;
+  cursor: pointer; }
+
+.group {
+  margin-bottom: 20px; }
+
+.test-section {
+  padding: 20px;
+  border-bottom: 1px solid #ccc; }
+
+.test-border {
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  padding: 10px; }

@@ -1,0 +1,65 @@
+@import "../../scss/variables.scss";
+.face{
+	background-image: url(../img/slide_optimized.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	height: 100%;
+	background-size: cover;
+	position: relative;
+	
+}
+.face__header{
+	position: absolute;
+	width: 70%;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	text-align: center;
+	animation: down .8s ease-in-out .2s both;
+	opacity: 0;
+	@media screen and($xs){
+		top: 40%;
+	}
+}
+.face__title{
+	font-size: 45px;
+	margin-bottom: 25px;
+	color: #fff;
+}
+.face__subtitle{
+	color: #b3b3b3;
+	font-size: 16px;
+	margin-bottom: 60px;
+	line-height: 1.3em;
+}
+.face__logo{
+	margin-bottom: 40px;
+	@media screen and($xs){
+		display: none;
+	}
+}
+.face__scroll{
+	text-decoration: none;
+	color: #fff;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	line-height: 50px;
+	text-align: center;
+	&:hover{
+		color: #fff;
+		text-decoration: none;
+	}
+	&:focus{
+		outline: none;	
+	}
+}
+.face__ico{
+	font-family: 'vc';
+	font-size: 30px;
+	margin-bottom: -1px;
+	margin-left: 1px;
+}

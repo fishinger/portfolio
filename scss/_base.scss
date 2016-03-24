@@ -6,17 +6,28 @@
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+
 html, body {
 	margin: 0;
 	padding: 0;
+	height: 100%!important;
+	position: relative;
+	
 }
 
 body {
-	font-family: Arial, sans-serif;
 	//font-size: 62.5%;
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	color: #6B6A6A;
+	@media screen and($xs){
+		overflow-x: hidden;
+	}
 }
 .container{
-	min-width: 315px;
+	min-width: 280px;
 }
 
 .clearfix:after,
@@ -26,4 +37,110 @@ body {
 }
 .clearfix:after{
 	clear: both;
+}
+[ng\:cloak], [ng-cloak], .ng-cloak{
+	display: none;
+}
+
+input{
+	outline: none;
+}
+form input.ng-dirty.ng-invalid{
+	border: 1px solid red;
+}
+form input.ng-dirty.ng-valid{
+	border: 1px solid green;
+}
+
+ul{
+	list-style: none;
+}
+a:focus{
+	color: inherit;
+	outline: none;
+	text-decoration: none;
+}
+.main{
+	height: 100%;
+	&.pages{
+		padding-top: 70px;
+	}
+}
+.title{
+	text-align: center;
+	font-size: 2em;
+	color: #979797;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	margin-bottom: 35px;
+	@media screen and($xs){
+		font-size: 1.5em;
+	}
+}
+.text{
+	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	color: #565353;
+	@media screen and($xs){
+		text-align: center;
+	}
+}
+.text__bold{
+	font-weight: 400;
+}
+img{
+	max-width: 100%;
+}
+.valign-center{
+	display: flex;
+	align-items: center;
+	@media screen and($xs){
+		flex-direction: column;
+	}
+}
+.list-style{
+	list-style: none;
+	padding: 0;
+	li{
+		padding-left: 27px;
+		position: relative;
+		&:before{
+			 content: "\e088";
+			font-family: 'Glyphicons Halflings';
+			position: absolute;
+			top: 3px;
+			left: 0;
+			transform: rotate(45deg);
+			font-size: 17px;
+			 color: #F05C2B;
+		}
+	}
+}
+.my-name{
+	color: #a1a1a1;
+	text-transform: uppercase;
+	font-size: 28px;
+	font-weight: 700;
+	display: flex;
+	transition: all .3s;
+	align-items: center;
+	flex-direction: row;
+	cursor: pointer;
+	&:focus{
+		outline: none;
+	}
+	&:hover{
+		text-decoration: none;
+		color: #D6D6D6;
+		.nav__logo{
+			opacity: .9;
+		}
+	}
+	@media screen and($xs){
+		// transform: scale(0.7);
+		// float: none!important;
+		display: none;
+	}
 }

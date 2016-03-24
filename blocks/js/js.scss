@@ -1,0 +1,36 @@
+@import "../../scss/variables.scss";
+.js{
+	img{
+		margin-bottom: 20px;
+	}
+}
+.js__logo{
+	max-width: 89px;
+}
+.js__jquery{
+	max-width: 150px;
+}
+.js__angular{
+	max-width: 220px;
+}
+.js__listimg{
+	// display: flex;
+	// flex-direction: row;
+	// justify-content: space-around;
+	// align-items: center;
+	@extend .clearfix;
+	text-align: center;
+	img{
+		display: inline-block;
+		vertical-align: top;
+		&:last-child{
+			float: right;
+		}
+		&:first-child{
+			float: left;
+		}
+	}
+	@media screen and($xs){
+		display: none;
+	}
+}

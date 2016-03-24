@@ -1,0 +1,17 @@
+@keyframes down{
+	0%{
+		margin-top: 0;
+	}
+	100%{
+		margin-top: 100px;
+		opacity: 1;
+	}
+}
+@keyframes blockDown{
+	0%{
+		top: -40px;
+	}
+	100%{
+		top: 40px;
+	}
+}

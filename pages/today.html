@@ -1,0 +1,41 @@
+<h1>Today</h1>
+<section>
+	<div ng-controller='listsCtrl as listsCtrl'>
+		<div class="lists">
+			<div class="list" ng-repeat='list in listsCtrl.getLists' ng-controller='listCtrl as listCtrl'>
+				<div class="list__remove" ng-click='listCtrl.removeList(list)'>Удалить</div>
+				<h3 class="title">{{list.name}}</h3>
+				<div class="cards">
+					<div class="card" ng-repeat='card in listCtrl.getCards(list)' ng-controller='cardCtrl as cardCtrl'>
+						
+						<div class="card__name">{{card.name}} {{card.id}}</div>
+						<div class="card__description" ng-if='!cardCtrl.statusEdit' >{{card.description}}</div>
+						<form action="" ng-submit='cardCtrl.updateCard()' 
+									ng-if='cardCtrl.statusEdit'
+									close-edit
+									status-edit='cardCtrl.statusEdit'>
+							<input type="text" ng-model='cardCtrl.copyCard.description'>
+							<select ng-model='cardCtrl.copyCard.list_id'
+									ng-options='list.id as list.name for list in listsCtrl.getLists'
+									ng-change='cardCtrl.updateCard()'
+							></select>
+						</form>
+						<div class="card__edit" ng-click='cardCtrl.editCard(card)'>Редактировать</div>
+						<div class="card__remove" ng-click='cardCtrl.removeCard(card)'>Удалить</div>
+					</div>
+				</div>
+				<h4>Добавить карту</h4>
+				<form ng-submit='listCtrl.addCard(list)'>
+					<input type="text" ng-model='listCtrl.cardName'>
+				</form>
+				
+			</div>
+		</div>
+		<div class="add-list">
+			<h2>Новый лист</h2>
+			<form ng-submit='listsCtrl.addList()'>
+				<input type="text" ng-model='listsCtrl.name'>
+			</form>
+		</div>
+	</div>
+</section>

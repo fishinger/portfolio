@@ -1,0 +1,84 @@
+@import "../../scss/variables.scss";
+.projects{
+	padding-top: 30px;
+	@media screen and($xs){
+		padding: 30px 15px 0 15px;
+	}
+	
+}
+.project{
+	height: 260px;
+	background-repeat: no-repeat;
+	background-position: center 0;
+	background-size: cover;
+	display: block;
+	text-decoration: none;
+	position: relative;
+	transition: all .3s;
+	overflow: hidden;
+	&:nth-of-type(1){
+		background-image: url(../../img/syndicate.png);
+	}
+	&:nth-of-type(2){
+		background-image: url(../../img/shop.jpg);
+	}
+	&:nth-of-type(3){
+		background-image: url(../../img/samurai.jpg);
+	}
+	&:nth-of-type(4){
+		background-image: url(../../img/gela.png);
+	}
+	&:nth-of-type(5){
+		background-image: url(../../img/trello.png);
+	}
+	&:nth-of-type(6){
+		background-image: url(../../img/ausy.jpg);
+	}
+	&:nth-of-type(7){
+		background-image: url(../../img/bar.png);
+	}
+	&:nth-of-type(8){
+		background-image: url(../../img/sport.jpg);
+	}
+	&:nth-of-type(9){
+		background-image: url(../../img/henkel.png);
+	}
+	&:after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: #000;
+		opacity: 0;
+		transition: all .3s;
+	}
+	&:hover{
+		background-position: center -20px;
+		&:after{
+			opacity: .7;
+		}
+		.project__title{
+			// display: block;
+			opacity: 1;
+			top: 40px;
+			//animation: blockDown .3s ease-in-out both;
+		}
+	}
+}
+.project__title{
+	font-size: 18px;
+	line-height: 1.4em;
+	color: #fff;
+	font-weight: 700;
+	text-transform: uppercase;
+	position: absolute;
+	top: -40px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	transition: all .3s;
+	z-index: 5;
+	opacity: 0;
+}

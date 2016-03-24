@@ -1,0 +1,24 @@
+.js img {
+  margin-bottom: 20px; }
+
+.js__logo {
+  max-width: 89px; }
+
+.js__jquery {
+  max-width: 150px; }
+
+.js__angular {
+  max-width: 220px; }
+
+.js__listimg {
+  text-align: center; }
+  .js__listimg img {
+    display: inline-block;
+    vertical-align: top; }
+    .js__listimg img:last-child {
+      float: right; }
+    .js__listimg img:first-child {
+      float: left; }
+  @media screen and (max-width: 768px) {
+    .js__listimg {
+      display: none; } }
